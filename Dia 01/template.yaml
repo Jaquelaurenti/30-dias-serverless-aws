@@ -1,0 +1,17 @@
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+
+  MyLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs14.x
+      CodeUri: .
+      Events:
+        MyS3Event:
+          Type: S3
+          Properties:
+            Bucket: !Ref bucketDia01
+            Events:
+              - s3:ObjectCreated:*
