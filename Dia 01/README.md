@@ -31,9 +31,15 @@ Agora precisamos provisionar a infraestrutura.
 terraform init
 terraform apply
 ```
+### Testando a aplicação 
+
 Agora nossa infraestutura estará provisionada, vamos invocar nossa função lambda.
 ```  
 aws lambda invoke --function-name hello-world-lambda output.txt
 ```  
-
 Será criado um arquivo output.txt com a mensagem "Hellor World".
+
+### Removendo a infraestrutura
+```  
+terraform destroy
+```  
